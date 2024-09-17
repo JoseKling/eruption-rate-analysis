@@ -1,8 +1,8 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/your-app', '.']
+    args: ['build', '-t', 'gcr.io/$_SERVICE_NAME/your-app', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/your-app']
+    args: ['push', 'gcr.io/$_SERVICE_NAME/your-app']
 
 images:
-  - 'gcr.io/$PROJECT_ID/your-app'
+  - 'gcr.io/$_SERVICE_NAME/your-app'
