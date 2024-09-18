@@ -24,6 +24,9 @@ steps:
     - --port
     - '8080'
 
+options:
+  logging: CLOUD_LOGGING_ONLY
+
 # Substitutions can be used for parameters like $PROJECT_ID
 substitutions:
   _SERVICE_NAME: 'eruption-rate-analysis'
