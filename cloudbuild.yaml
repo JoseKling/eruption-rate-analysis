@@ -17,6 +17,8 @@ steps:
       - europe-west4-docker.pkg.dev/${PROJECT_ID}/eruption-rate-analysis/image:${SHORT_SHA}
       - --platform
       - managed
+      - --region
+      - europe-west4
       - --allow-unauthenticated
       - --port
       - '8080'
