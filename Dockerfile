@@ -1,5 +1,6 @@
 # Apparently there are compatility issues with julia 1.11
 FROM	    julia:1.10-bookworm
+ENV         JULIA_DEPOT_PATH=/home/.julia
 COPY	    . ./
 # PlutoSliderServer is the only dependency
 RUN         julia julia_build_script
