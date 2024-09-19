@@ -1,11 +1,17 @@
 steps:
   # Build the docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'europe-west4-docker.pkg.dev/${PROJECT_ID}/eruption-rate-analysis/image:${SHORT_SHA}', '.']
+    args: 
+      - build
+      - --tag
+      - europe-west4-docker.pkg.dev/$PROJECT_ID/eruption-rate-analysis/image
+      - .
 
   # Push the image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'europe-west4-docker.pkg.dev/${PROJECT_ID}/eruption-rate-analysis/image:${SHORT_SHA}']
+    args: 
+      - push
+      - europe-west4-docker.pkg.dev/$PROJECT_ID/eruption-rate-analysis/image
 
   # Deploy to Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -14,7 +20,7 @@ steps:
       - deploy
       - eruption-rate-analysis
       - --image
-      - europe-west4-docker.pkg.dev/${PROJECT_ID}/eruption-rate-analysis/image:${SHORT_SHA}
+      - europe-west4-docker.pkg.dev/$PROJECT_ID/eruption-rate-analysis/image
       - --platform
       - managed
       - --region
@@ -24,7 +30,7 @@ steps:
       - '8080'
 
 images:
-  - 'europe-west4-docker.pkg.dev/${PROJECT_ID}/eruption-rate-analysis/image:${SHORT_SHA}'
+  - 'europe-west4-docker.pkg.dev/$PROJECT_ID/eruption-rate-analysis/image'
 
 options:
   logging: CLOUD_LOGGING_ONLY
