@@ -1,7 +1,7 @@
-using Pkg
-Pkg.activate("./")
-using PlutoSliderServer
-port = get(ENV, "PORT", "8080")
+using Pkg # Starts package manager
+Pkg.activate("./") # Activates the environment in the current folder
+using PlutoSliderServer # Imports PlutoSliderServer
+port = get(ENV, "PORT", "8080") # In case the environment variable 'PORT' is set. Otherwise use port 8080
 PlutoSliderServer.run_directory("./", 
                                 SliderServer_host="0.0.0.0",
-                                SliderServer_port=parse(Int, port))
+                                SliderServer_port=parse(Int, port)) # Starts the server
