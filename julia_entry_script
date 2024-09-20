@@ -1,0 +1,7 @@
+using Pkg
+Pkg.activate("./")
+using PlutoSliderServer
+port = get(ENV, "PORT", "8080")
+PlutoSliderServer.run_directory("./", 
+                                SliderServer_host="0.0.0.0",
+                                SliderServer_port=parse(Int, port))
