@@ -1,13 +1,3 @@
 using Pkg
-Pkg.add("Pluto")
-Pkg.add("PlutoSliderServer")
-Pkg.update()
-using Pluto
-for file in readdir()
-    if endswith(file, ".jl")
-        Pluto.activate_notebook_environment(file)
-        using Pkg
-        Pkg.instantiate()
-    end
-end
-
+Pkg.activate("./")
+Pkg.instantiate()

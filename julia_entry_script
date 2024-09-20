@@ -1,5 +1,5 @@
 using Pkg
-Pkg.activate()
+Pkg.activate("./")
 using PlutoSliderServer
 port = get(ENV, "PORT", "8080")
 PlutoSliderServer.run_directory("./", 
