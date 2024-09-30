@@ -2,11 +2,8 @@ using Pkg # Starts package manager
 using Logging
 Pkg.activate("./") # Activates the environment in the current folder
 global_logger(ConsoleLogger(stderr, Logging.Debug));
-#using PlutoSliderServer # Imports PlutoSliderServer
-#port = get(ENV, "PORT", "8080") # In case the environment variable 'PORT' is set. Otherwise use port 8080
-#PlutoSliderServer.run_directory("./", 
-#                                SliderServer_host="0.0.0.0",
-#                                SliderServer_port=parse(Int, port)) # Starts the server
-
-using Pluto
-Pluto.run(host="0.0.0.0", port=8080, require_secret_for_open_links=false, require_secret_for_access=false)
+using PlutoSliderServer # Imports PlutoSliderServer
+port = get(ENV, "PORT", "8080") # In case the environment variable 'PORT' is set. Otherwise use port 8080
+PlutoSliderServer.run_directory("./", 
+                                SliderServer_host="0.0.0.0",
+                                SliderServer_port=parse(Int, port)) # Starts the server

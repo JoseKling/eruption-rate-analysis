@@ -1,6 +1,3 @@
 using Pkg # Starts the package manager
 Pkg.activate("./") # Activates the environment in the current folder
-Pkg.update()
-Pkg.resolve()
 Pkg.instantiate() # Precompiles all dependencies in 'Project.toml'
-Pkg.precompile()
